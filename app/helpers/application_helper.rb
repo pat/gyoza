@@ -1,6 +1,11 @@
 module ApplicationHelper
   def extension
-    params[:path][/[^\.]+$/]
+    @extension ||= case params[:path][/[^\.]+$/]
+    when 'md'
+      'markdown'
+    else
+      params[:path][/[^\.]+$/]
+    end
   end
 
   def link_to_file

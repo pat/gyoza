@@ -12,7 +12,10 @@
 //
 //= require jquery
 //= require ace/ace
+//= require ace/mode-text
 //= require ace/mode-html
+//= require ace/mode-markdown
+//= require ace/mode-textile
 //= require_tree .
 
 window.editor = ace.edit("editor");
