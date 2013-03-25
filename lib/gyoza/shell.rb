@@ -22,7 +22,7 @@ class Gyoza::Shell
     @ssh_file ||= Tempfile.new('ssh.config').tap do |file|
       file.write <<-SSH
 Host github
-HostName #{Gyoza::GITHUB_DOMAIN}
+HostName #{Gyoza::GITHUB}
 Port 22
 IdentityFile #{key_file.path}
 IdentitiesOnly yes
