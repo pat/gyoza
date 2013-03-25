@@ -2,6 +2,8 @@
   <%= form_tag '', method: 'put' do %>
     <input type="hidden" value="<%= contents %>" id="contents" name="contents" />
 
+    <p>These details get passed through to the generated pull request.</p>
+
     <fieldset>
       <div>
         <label for="subject">Subject</label>
