@@ -1,0 +1,13 @@
+<p>Gyoza allows anyone with a GitHub account to easily contribute to project GitHub Pages sites. All you need to do is edit a page - the forking, committing and pull requesting is taken care of for you (but you still get credit for the commit).</p>
+
+<p>Gyoza expects URLs with the following format:</p>
+
+<pre><code><%= site_show_url(user: 'USER', repo: 'REPO', path: 'FILE_PATH') %></code></pre>
+
+<p>So, as an example, here's what the URL for editing the home page of the Thinking Sphinx documentation looks like:</p>
+
+<pre><code><%= site_show_url(user: 'pat', repo: 'thinking-sphinx', path: 'index.md') %></code></pre>
+
+<p>When you visit these URLs, you will be prompted to sign in via GitHub (with permission to access your email address). This is to avoid spam, and to ensure the commit is attributed to you.</p>
+
+<p>The file path refers to files within the <code>gh-pages</code> branch of the specified repository. There is currently no support for user GitHub Pages editing.</p>
