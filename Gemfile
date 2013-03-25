@@ -18,3 +18,7 @@ gem 'jquery-rails',    '~> 2.2.1'
 gem 'omniauth-github', '~> 1.1.0'
 gem 'sinatra',         '~> 1.3.3', require: false
 gem 'slim',            '~> 1.3.4'
+
+group :test do
+  gem 'rspec-rails', '2.12.2'
+end
