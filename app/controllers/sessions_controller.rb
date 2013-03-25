@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  skip_before_filter :check_for_session
-
   def create
     session[:omniauth] = request.env['omniauth.auth'].except('extra')
 

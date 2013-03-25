@@ -3,6 +3,8 @@ require 'open-uri'
 class SitesController < ApplicationController
   expose(:contents) { params[:contents] || open(github_uri).read }
 
+  before_filter :check_for_session
+
   def update
     Gyoza::Workers::ChangeWorker.perform_async(
       author:      author,
