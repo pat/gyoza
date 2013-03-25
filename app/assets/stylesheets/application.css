@@ -1,0 +1,56 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+header span {
+  float: right;
+  margin-left: 1em;
+}
+
+aside {
+  float: right;
+  width: 30%;
+}
+
+#editor {
+  position: absolute;
+  width:  65%;
+  height: 600px;
+}
+
+fieldset {
+  margin: 0;
+  border: none;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+
+textarea {
+  width: 98.5%;
+  height: 4em;
+  margin: 0;
+}
+
+input[type=text] {
+  width: 98%;
+  margin: 0;
+}
+
+input[type=submit] {
+  font-size: 100%;
+  float: right;
+}
