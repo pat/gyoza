@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def extension
+    params[:path][/[^\.]+$/]
+  end
+
   def link_to_file
     uri = [Gyoza::GITHUB_HOST, params[:user], params[:repo], 'blob',
       'gh-pages', params[:path]].join('/')

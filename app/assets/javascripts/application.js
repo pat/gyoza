@@ -16,9 +16,10 @@
 //= require_tree .
 
 window.editor = ace.edit("editor");
-var HTMLMode = require("ace/mode/html").Mode;
+var extension = $('#editor').data('file-ext');
+var mode      = require("ace/mode/" + extension).Mode;
 
-editor.getSession().setMode(new HTMLMode());
+editor.getSession().setMode(new mode());
 editor.getSession().setTabSize(2);
 editor.getSession().setUseSoftTabs(true);
 
