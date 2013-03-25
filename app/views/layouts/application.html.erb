@@ -7,8 +7,10 @@
 </head>
 <body>
   <header>
-    <span><a href="/sign_out">Sign out</a></span>
-    <span>Logged in as <%= link_to_username %></span>
+    <%- if session[:omniauth] %>
+      <span><a href="/sign_out">Sign out</a></span>
+      <span>Logged in as <%= link_to_username %></span>
+    <%- end %>
     <h1>Gyoza</h1>
   </header>
 
