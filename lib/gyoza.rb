@@ -1,4 +1,5 @@
 require 'sidekiq'
+require 'gh'
 
 module Gyoza
   GITHUB             = ENV['GITHUB_DOMAIN'] || 'github.com'
