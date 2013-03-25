@@ -1,3 +1,5 @@
+require 'sidekiq'
+
 module Gyoza
   GITHUB             = ENV['GITHUB_DOMAIN'] || 'github.com'
   GITHUB_HOST        = "https://#{GITHUB}"
