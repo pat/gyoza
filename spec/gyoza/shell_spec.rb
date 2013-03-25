@@ -1,16 +1,18 @@
 require 'gyoza'
 
 describe Gyoza::Shell do
-  let(:ssh_file) { double path: '/tmp/ssh/config',  write: true }
-  let(:key_file) { double path: '/tmp/private.key', write: true }
+  let(:ssh_file) { double path: '/tmp/ssh/config',  write: true, unlink: true }
+  let(:key_file) { double path: '/tmp/private.key', write: true, unlink: true }
   let(:logger)   { double debug: true }
+
+  before :each do
+    stub_const 'Gyoza::GITHUB_PRIVATE_KEY', 'generated-key'
+    Tempfile.stub(:new).and_return ssh_file, key_file
+  end
 
   describe '#run' do
     before :each do
       stub_const 'Rails', double(logger: logger)
-      stub_const 'Gyoza::GITHUB_PRIVATE_KEY', 'generated-key'
-
-      Tempfile.stub(:new).and_return ssh_file, key_file
       subject.stub :` => 'output'
     end
 
@@ -38,6 +40,20 @@ UserKnownHostsFile /dev/null
       CONFIG
 
       subject.run 'foo'
+    end
+  end
+
+  describe '#unlink' do
+    it "unlinks the key file" do
+      key_file.should_receive(:unlink)
+
+      subject.unlink
+    end
+
+    it "unlinks the ssh configuration file" do
+      ssh_file.should_receive(:unlink)
+
+      subject.unlink
     end
   end
 end
