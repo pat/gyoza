@@ -22,12 +22,12 @@ window.editor = ace.edit("editor");
 var extension = $('#editor').data('file-ext');
 var mode      = require("ace/mode/" + extension).Mode;
 
-editor.setTheme("ace/theme/twilight");
 editor.getSession().setMode(new mode());
 editor.getSession().setTabSize(2);
 editor.getSession().setUseSoftTabs(true);
 editor.getSession().setUseWrapMode(true);
 editor.setShowPrintMargin(false);
+editor.setTheme("ace/theme/twilight");
 
 $('form').submit(function() {
   $('#contents').val(editor.getValue());
