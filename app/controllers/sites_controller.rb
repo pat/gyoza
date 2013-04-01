@@ -11,7 +11,7 @@ class SitesController < ApplicationController
       user:        params[:user],
       repo:        params[:repo],
       file:        params[:path],
-      contents:    contents,
+      contents:    contents.gsub(/\r\n?/, "\n"),
       subject:     params[:subject],
       description: params[:description],
       nickname:    session[:omniauth]['info']['nickname']
