@@ -2,18 +2,17 @@
   <%= form_tag '', method: 'put' do %>
     <input type="hidden" value="<%= contents %>" id="contents" name="contents" />
 
-    <p>These details get passed through to the generated pull request.</p>
-
     <fieldset>
       <div>
-        <label for="subject">Subject</label>
-        <input type="text" name="subject" id="subject" />
+        <p>To credit the commit accordingly (use the same email address as your GitHub account):</p>
+        <label for="email">Email Address</label>
+        <input type="text" name="email" id="email" value="<%= email %>" />
       </div>
 
       <div>
-        <p>To credit the commit accordingly:</p>
-        <label for="email">Email Address</label>
-        <input type="text" name="email" id="email" value="<%= email %>" />
+        <p>These details get passed through to the generated pull request.</p>
+        <label for="subject">Subject</label>
+        <input type="text" name="subject" id="subject" />
       </div>
 
       <div>
@@ -27,7 +26,5 @@
     </fieldset>
   <% end %>
 <% end %>
-
-<h3>Editing <%= link_to_file %> from <%= link_to_repo %></h3>
 
 <div id="editor" data-file-ext="<%= extension %>"><%= contents %></div>

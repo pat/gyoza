@@ -25,6 +25,8 @@ var mode      = require("ace/mode/" + extension).Mode;
 editor.getSession().setMode(new mode());
 editor.getSession().setTabSize(2);
 editor.getSession().setUseSoftTabs(true);
+editor.getSession().setUseWrapMode(true);
+editor.setShowPrintMargin(false);
 
 $('form').submit(function() {
   $('#contents').val(editor.getValue());
