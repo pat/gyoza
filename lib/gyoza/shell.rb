@@ -15,6 +15,7 @@ class Gyoza::Shell
   def key_file
     @key_file ||= Tempfile.new('private.key').tap do |file|
       file.write Gyoza::GITHUB_PRIVATE_KEY
+      file.close
     end
   end
 
@@ -29,6 +30,7 @@ IdentitiesOnly yes
 StrictHostKeyChecking no
 UserKnownHostsFile /dev/null
       SSH
+      file.close
     end
   end
 end
