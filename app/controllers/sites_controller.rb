@@ -2,6 +2,7 @@ require 'open-uri'
 
 class SitesController < ApplicationController
   expose(:contents) { params[:contents] || open(github_uri).read }
+  expose(:email)    { params[:email] || session[:omniauth]['info']['email'] }
 
   before_filter :check_for_session
 
@@ -26,7 +27,7 @@ class SitesController < ApplicationController
     name = session[:omniauth]['info']['name'] ||
       session[:omniauth]['info']['nickname']
 
-    "#{name} <#{session[:omniauth]['info']['email']}>"
+    "#{name} <#{email}>"
   end
 
   def github_uri
