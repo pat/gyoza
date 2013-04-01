@@ -18,6 +18,10 @@
         <span>Logged in as <%= link_to_username %></span>
       <%- end %>
       <h1><a href="/">Gyoza</a></h1>
+
+      <%- if flash[:notice].present? -%>
+        <p class="flash notice"><%= flash[:notice] %></p>
+      <%- end -%>
     </header>
 
     <%= yield :aside %>

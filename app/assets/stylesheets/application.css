@@ -109,3 +109,11 @@ input[type=submit] {
   font-size: 100%;
   float: right;
 }
+
+.flash.notice {
+  background-color: #99ff99;
+  color: #000;
+  padding: 0.5em;
+  text-align: center;
+  font-size: 1.2em;
+}

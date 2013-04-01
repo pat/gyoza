@@ -18,7 +18,7 @@ class SitesController < ApplicationController
       nickname:    session[:omniauth]['info']['nickname']
     )
 
-    redirect_to :back
+    redirect_to :back, notice: 'Your change will be logged as a pull request momentarily. Thank you for contributing!'
   end
 
   private
