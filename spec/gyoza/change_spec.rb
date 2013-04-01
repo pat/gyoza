@@ -41,7 +41,7 @@ describe Gyoza::Change do
     end
 
     it "clones the repo into the tmp directory" do
-      shell.should_receive(:run).with('git clone --branch gh-pages git@github:gyozadoc/travis /tmp/path/travis')
+      shell.should_receive(:run).with('git clone --branch gh-pages git@github.com:gyozadoc/travis /tmp/path/travis')
 
       change.change
     end

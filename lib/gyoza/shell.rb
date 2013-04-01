@@ -26,7 +26,7 @@ class Gyoza::Shell
 exec /usr/bin/ssh -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -o UserKnownHostsFile=/dev/null -i #{key_file.path} "$@"
       SSH
       file.close
-      `chmod +x #{file.path}`
+      system "chmod +x #{file.path}"
     end
   end
 end

@@ -1,23 +1,26 @@
 require 'gyoza'
 
 describe Gyoza::Shell do
-  let(:ssh_file) { double path: '/tmp/ssh/config',  write: true, unlink: true }
-  let(:key_file) { double path: '/tmp/private.key', write: true, unlink: true }
+  let(:ssh_file) { double path: '/tmp/ssh/config',  write: true, close: true,
+    unlink: true }
+  let(:key_file) { double path: '/tmp/private.key', write: true, close: true,
+    unlink: true }
   let(:logger)   { double debug: true }
 
   before :each do
     stub_const 'Gyoza::GITHUB_PRIVATE_KEY', 'generated-key'
     Tempfile.stub(:new).and_return ssh_file, key_file
+    subject.stub :system => 'output'
   end
 
   describe '#run' do
     before :each do
       stub_const 'Rails', double(logger: logger)
-      subject.stub :` => 'output'
     end
 
     it "runs each supplied command with the path to ssh configuration" do
-      subject.should_receive(:`).with('GIT_SSH=/tmp/ssh/config foo')
+      subject.should_receive(:system).
+        with({'GIT_SSH' => '/tmp/ssh/config'}, 'foo')
 
       subject.run 'foo'
     end
@@ -30,13 +33,8 @@ describe Gyoza::Shell do
 
     it "generates a temporary ssh configuration file" do
       ssh_file.should_receive(:write).with <<-CONFIG
-Host github
-HostName github.com
-Port 22
-IdentityFile /tmp/private.key
-IdentitiesOnly yes
-StrictHostKeyChecking no
-UserKnownHostsFile /dev/null
+#!/bin/sh
+exec /usr/bin/ssh -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -o UserKnownHostsFile=/dev/null -i /tmp/private.key "$@"
       CONFIG
 
       subject.run 'foo'
