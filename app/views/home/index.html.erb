@@ -1,7 +1,7 @@
 <%= content_for :aside do %>
-  <p>Streamlined Edits for GitHub Pages</p>
+  <p>Streamlined Editing for GitHub Pages</p>
 
-  <p>Developed by <a href="http://freelancing-gods.com">Pat Allan</a>.
+  <p>Developed by <a href="http://freelancing-gods.com">Pat Allan</a> at <a href="https://railscamps.com">Rails Camp 3 New Zealand</a>.
 <% end %>
 
 <article>
@@ -20,4 +20,14 @@
   <p>When you visit these URLs, you will be prompted to sign in via GitHub (with permission to access your email address). This is to avoid spam, and to ensure the commit is attributed to you.</p>
 
   <p>The file path refers to files within the <code>gh-pages</code> branch of the specified repository. There is currently no support for user GitHub Pages editing.</p>
+
+  <p>Within your GitHub page files, you can use the following Javascript to generate a link back to the edit page on Gyoza:</p>
+
+  <pre><code>&lt;script type="text/javascript" charset="utf-8"&gt;
+var base = "http://gyozadoc.com/edit/pat/thinking-sphinx"
+var path = "{{ page.url }}".replace('.html', '.md');
+document.write("&lt;a class=\"gyoza\" href=\"" + base + path + "\"&gt;Edit via Gyoza&lt;/a&gt;");
+&lt;/script&gt;</code></pre>
+
+  <p>And if you want to improve Gyoza, you can: it's <a href="https://github.com/pat/gyoza">open source</a>.</p>
 </article>
