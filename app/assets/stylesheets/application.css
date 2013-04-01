@@ -23,7 +23,7 @@ a {
 }
 
 header {
-  padding: 0 0.5em;
+  padding: 0 10px;
 }
 
 header span {
@@ -64,7 +64,11 @@ aside {
 }
 
 aside h3 {
-  margin: 0 0.5em;
+  margin: 0 10px;
+}
+
+aside .explanation {
+  margin: 0.5em 10px;
 }
 
 #main {
