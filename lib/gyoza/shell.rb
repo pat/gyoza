@@ -22,15 +22,11 @@ class Gyoza::Shell
   def ssh_file
     @ssh_file ||= Tempfile.new('ssh.config').tap do |file|
       file.write <<-SSH
-Host github
-HostName #{Gyoza::GITHUB}
-Port 22
-IdentityFile #{key_file.path}
-IdentitiesOnly yes
-StrictHostKeyChecking no
-UserKnownHostsFile /dev/null
+#!/bin/sh
+exec /usr/bin/ssh -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -o UserKnownHostsFile=/dev/null -i #{key_file.path} "$@"
       SSH
       file.close
+      `chmod +x #{file.path}`
     end
   end
 end
