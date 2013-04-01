@@ -14,6 +14,16 @@
 
 body {
   margin: 0;
+  font-family: 'Helvetica Neue', 'Arial';
+  color: #444;
+}
+
+a {
+  color: #00c;
+}
+
+header {
+  padding: 0 0.5em;
 }
 
 header span {
@@ -21,9 +31,40 @@ header span {
   margin-left: 1em;
 }
 
+header h1 {
+  font-family: 'Unica One', cursive;
+  font-size: 3em;
+  margin: 0.25em 0;
+  color: #000;
+}
+
+header h1 a {
+  color: #000;
+  text-decoration: none;
+}
+
+article {
+  margin: 0 1.5em;
+}
+
+article h2 {
+  font-family: 'Unica One', cursive;
+  font-size: 2.4em;
+  margin: 0.25em 0;
+  color: #000;
+}
+
+article p {
+  width: 45em;
+}
+
 aside {
   float: right;
   width: 35%;
+}
+
+aside h3 {
+  margin: 0 0.5em;
 }
 
 #main {

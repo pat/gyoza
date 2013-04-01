@@ -1,4 +1,9 @@
 module ApplicationHelper
+  def example_url
+    url = site_show_url(user: 'pat', repo: 'thinking-sphinx', path: 'index.md')
+    link_to url, url
+  end
+
   def extension
     @extension ||= case params[:path][/[^\.]+$/]
     when 'md'

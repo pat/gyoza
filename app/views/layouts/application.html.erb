@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Gyoza</title>
+  <link href='http://fonts.googleapis.com/css?family=Unica+One' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => false %>
   <%= csrf_meta_tags %>
 </head>
@@ -16,10 +17,8 @@
         <span><a href="/sign_out">Sign out</a></span>
         <span>Logged in as <%= link_to_username %></span>
       <%- end %>
-      <h1>Gyoza</h1>
+      <h1><a href="/">Gyoza</a></h1>
     </header>
-
-    <h3>Editing <%= link_to_file %> from <%= link_to_repo %></h3>
 
     <%= yield :aside %>
   </aside>
