@@ -1,7 +1,7 @@
 class Gyoza::Shell
   def run(*commands)
     commands.each do |command|
-      Rails.logger.debug `GIT_SSH=#{ssh_file.path} #{command}`
+      system({'GIT_SSH' => ssh_file.path}, command)
     end
   end
 
