@@ -25,4 +25,4 @@ Contributions are very much welcome - but please keep patches in a separate bran
 
 ## Credits
 
-Copyright (c) 2013, Combustion is developed and maintained by [Pat Allan](http://freelancing-gods.com), and is released under the open MIT Licence. It began its life at [Rails Camp 3 New Zealand](http://railscamps.com).
+Copyright (c) 2013, Gyoza is developed and maintained by [Pat Allan](http://freelancing-gods.com), and is released under the open MIT Licence. It began its life at [Rails Camp 3 New Zealand](http://railscamps.com).
