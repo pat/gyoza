@@ -2,14 +2,14 @@ source 'https://rubygems.org'
 
 ruby '1.9.3'
 
-gem 'rails',   '4.0.0.beta1'
+gem 'rails',   '4.0.5'
 gem 'pg',      '~> 0.14.1'
 gem 'sidekiq', '~> 2.5.4'
 gem 'unicorn', '~> 4.5.0'
 
 group :assets do
-  gem 'sass-rails',   '~> 4.0.0.beta1'
-  gem 'coffee-rails', '~> 4.0.0.beta1'
+  gem 'sass-rails',   '~> 4.0.0'
+  gem 'coffee-rails', '~> 4.0.0'
   gem 'uglifier',     '>= 1.0.3'
 end
 
