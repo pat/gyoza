@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
+ruby '2.3.1'
 
-gem 'rails',   '4.0.5'
-gem 'pg',      '~> 0.14.1'
+gem 'rails',   '4.0.13'
+gem 'pg',      '~> 0.18.4'
 gem 'sidekiq', '~> 2.5.4'
 gem 'unicorn', '~> 4.5.0'
 
