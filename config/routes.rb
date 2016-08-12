@@ -8,8 +8,8 @@ Gyoza::Application.routes.draw do
     put '/edit/:user/:repo/*path' => 'sites#update', as: :site_update
   end
 
-  get '/auth/:provider/callback', to: 'sessions#create'
-  get '/sign_out',                to: 'sessions#destroy'
+  get '/auth/:provider/callback', to: 'sessions#create',  :as => :sign_in
+  get '/sign_out',                to: 'sessions#destroy', :as => :sign_out
 
   mount Sidekiq::Web => '/sidekiq'
 end
