@@ -40,6 +40,7 @@ GEM
     addressable (2.4.0)
     arel (6.0.3)
     backports (3.6.8)
+    bugsnag (5.1.0)
     builder (3.2.2)
     celluloid (0.15.2)
       timers (~> 1.1.0)
@@ -209,6 +210,7 @@ PLATFORMS
 
 DEPENDENCIES
   ace-rails-ap (~> 2.0.0)
+  bugsnag (~> 5.1.0)
   coffee-rails (~> 4.0.0)
   decent_exposure (~> 2.1.0)
   gh (~> 0.9.0)

@@ -14,6 +14,7 @@ group :assets do
 end
 
 gem 'ace-rails-ap',    '~> 2.0.0'
+gem 'bugsnag',         '~> 5.1.0'
 gem 'decent_exposure', '~> 2.1.0'
 gem 'gh',              '~> 0.9.0'
 gem 'jquery-rails',    '~> 2.2.1'
