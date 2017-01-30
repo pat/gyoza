@@ -23,4 +23,5 @@ gem 'slim',            '~> 1.3.4'
 
 group :test do
   gem 'rspec-rails', '2.12.2'
+  gem 'test-unit'
 end
