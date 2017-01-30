@@ -17,7 +17,6 @@ class Gyoza::Change
     Dir.chdir '/'
 
     FileUtils.remove_entry tmp_directory
-    shell.unlink
   end
 
   private
@@ -29,7 +28,7 @@ class Gyoza::Change
   end
 
   def clone
-    shell.run "git clone --branch gh-pages git@github.com:#{Gyoza::GITHUB_USERNAME}/#{options[:repo]} #{path}"
+    shell.run "git clone --branch gh-pages https://#{Gyoza::GITHUB_USERNAME}@github.com/#{Gyoza::GITHUB_USERNAME}/#{options[:repo]} #{path}"
     Dir.chdir path
   end
 
