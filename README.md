@@ -13,7 +13,6 @@ Gyoza is hosted at http://gyozadoc.com - so you can just use it there if you'd l
 * `GITHUB_USERNAME`: The username for the GitHub account generating pull requests.
 * `GITHUB_PASSWORD`: The password for the GitHub account generating pull requests.
 * `GITHUB_DOMAIN`: The domain for GitHub. Defaults to `github.com`, you'll only need to customise this if you're using GitHub Enterprise.
-* `GITHUB_PRIVATE_KEY`: The private key used for pushing commits to GitHub. The public key should be attached to the GitHub account.
 
 ## Limitations
 
