@@ -25,3 +25,7 @@ group :test do
   gem 'rspec-rails', '2.12.2'
   gem 'test-unit'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
