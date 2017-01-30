@@ -41,7 +41,7 @@ describe Gyoza::Change do
     end
 
     it "clones the repo into the tmp directory" do
-      shell.should_receive(:run).with('git clone --branch gh-pages git@github.com:gyozadoc/travis /tmp/path/travis')
+      shell.should_receive(:run).with('git clone --branch gh-pages https://gyozadoc@github.com/gyozadoc/travis /tmp/path/travis')
 
       change.change
     end
@@ -84,6 +84,8 @@ describe Gyoza::Change do
 
     it "commits and pushes the changed file" do
       shell.should_receive(:run).with(
+        'git config user.email "me@pat.com"',
+        'git config user.name "pat"',
         'git add index.textile',
         'git commit --message="merge please" --author="pat <me@pat.com>"',
         'git push origin patch-456123'
@@ -111,12 +113,6 @@ describe Gyoza::Change do
 
     it "removes the temp directory" do
       FileUtils.should_receive(:remove_entry).with '/tmp/path'
-
-      change.change
-    end
-
-    it "removes the temporary shell files" do
-      shell.should_receive :unlink
 
       change.change
     end

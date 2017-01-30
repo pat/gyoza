@@ -39,6 +39,10 @@ class Gyoza::Change
     ].join("\n\n").strip
   end
 
+  def email
+    options[:author].split('<').last.gsub('>', '')
+  end
+
   def fork
     begin
       gh["repos/#{Gyoza::GITHUB_USERNAME}/#{options[:repo]}"]
@@ -59,6 +63,10 @@ class Gyoza::Change
     end
   end
 
+  def name
+    options[:author].split('<').first.strip
+  end
+
   def patch
     shell.run "git checkout -b #{branch}"
 
@@ -67,6 +75,8 @@ class Gyoza::Change
     }
 
     shell.run(
+      "git config user.email \"#{email}\"",
+      "git config user.name \"#{name}\"",
       "git add #{options[:file]}",
       "git commit --message=\"#{options[:subject]}\" --author=\"#{options[:author]}\"",
       "git push origin #{branch}"
