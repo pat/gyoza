@@ -29,6 +29,6 @@ editor.getSession().setUseWrapMode(true);
 editor.setShowPrintMargin(false);
 editor.setTheme("ace/theme/twilight");
 
-$('form').submit(function() {
+$('form').submit(() => {
   $('#contents').val(editor.getValue());
 });
