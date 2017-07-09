@@ -89,7 +89,7 @@ class Gyoza::Change
 
   def pull_request
     gh.post "repos/#{options[:user]}/#{options[:repo]}/pulls", {
-      'title' => options[:subject],
+      'title' => subject,
       'body'  => description,
       'head'  => "#{Gyoza::GITHUB_USERNAME}:#{branch}",
       'base'  => 'gh-pages'
@@ -98,6 +98,10 @@ class Gyoza::Change
 
   def shell
     @shell ||= Gyoza::Shell.new
+  end
+
+  def subject
+    options[:subject].present? ? options[:subject] : "Documentation Update"
   end
 
   def tmp_directory
