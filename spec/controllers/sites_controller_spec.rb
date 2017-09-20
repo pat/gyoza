@@ -3,7 +3,7 @@ require 'spec_helper'
 describe SitesController do
   describe '#show' do
     it "requires OAuth authentication" do
-      get :show, user: 'pat', repo: 'riddle', path: 'index.html'
+      get :show, :params => {user: 'pat', repo: 'riddle', path: 'index.html'}
 
       expect(response).to redirect_to('/auth/github')
     end
@@ -11,7 +11,7 @@ describe SitesController do
     it "is successful with an active OAuth session" do
       session[:omniauth] = {'foo' => 'bar'}
 
-      get :show, user: 'pat', repo: 'riddle', path: 'index.html'
+      get :show, :params => {user: 'pat', repo: 'riddle', path: 'index.html'}
 
       expect(response).to be_success
     end
@@ -19,9 +19,11 @@ describe SitesController do
 
   describe '#update' do
     def send_update
-      put :update, user: 'pat', repo: 'riddle', path: 'index.html',
+      put :update, :params => {
+        user: 'pat', repo: 'riddle', path: 'index.html',
         contents: 'cleared', subject: 'docs need rewriting',
         description: 'here is a start'
+      }
     end
 
     before :each do

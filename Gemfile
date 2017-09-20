@@ -2,24 +2,22 @@ source 'https://rubygems.org'
 
 ruby '2.3.5'
 
-gem 'rails',   '4.2.9'
-gem 'pg',      '~> 0.18.4'
-gem 'sidekiq', '< 3'
+gem 'rails',   '5.0.6'
+gem 'pg',      '~> 0.18'
+gem 'sidekiq', '~> 5.0'
 gem 'unicorn', '~> 4.5.0'
 
 # assets
-gem 'sass-rails',   '~> 4.0.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'uglifier',     '>= 1.0.3'
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
+gem 'jquery-rails'
 
 gem 'ace-rails-ap',    '~> 2.0.0'
 gem 'bugsnag',         '~> 5.1.0'
-gem 'decent_exposure', '~> 2.1.0'
+gem 'decent_exposure'
 gem 'gh',              '~> 0.9.0'
-gem 'jquery-rails',    '~> 2.2.1'
 gem 'omniauth-github', '~> 1.1.0'
-gem 'sinatra',         '~> 1.3.3', require: false
-gem 'slim',            '~> 1.3.4'
 
 group :test do
   gem 'rspec-rails', '~> 3.6'

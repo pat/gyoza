@@ -4,7 +4,7 @@ class SitesController < ApplicationController
   expose(:contents) { params[:contents] || open(github_uri).read }
   expose(:email)    { params[:email] || session[:omniauth]['info']['email'] }
 
-  before_filter :check_for_session
+  before_action :check_for_session
 
   def update
     Gyoza::Workers::ChangeWorker.perform_async(
@@ -18,7 +18,10 @@ class SitesController < ApplicationController
       nickname:    session[:omniauth]['info']['nickname']
     )
 
-    redirect_to :back, notice: 'Your change will be logged as a pull request momentarily. Thank you for contributing!'
+    redirect_back(
+      fallback_location: site_show_path(params[:user], params[:repo], params[:path]),
+      notice: 'Your change will be logged as a pull request momentarily. Thank you for contributing!'
+    )
   end
 
   private
