@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.5'
 
-gem 'rails',   '5.0.6'
+gem 'rails',   '5.1.4'
 gem 'pg',      '~> 0.18'
 gem 'sidekiq', '~> 5.0'
 gem 'unicorn', '~> 4.5.0'
