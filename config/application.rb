@@ -7,8 +7,9 @@ require "action_controller/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
-# Assets should be precompiled for production (so we don't need the gems loaded then)
-Bundler.require(*Rails.groups(assets: %w(development test)))
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(*Rails.groups)
 
 module Gyoza
   class Application < Rails::Application
@@ -18,6 +19,9 @@ module Gyoza
     config.time_zone = 'Melbourne'
 
     # config.i18n.default_locale = :de
+
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    # config.active_record.raise_in_transactional_callbacks = true
 
     config.middleware.use OmniAuth::Builder do
       provider :github, ENV['GITHUB_APP_ID'], ENV['GITHUB_SECRET'],

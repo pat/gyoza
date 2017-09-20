@@ -7,11 +7,10 @@ gem 'pg',      '~> 0.18.4'
 gem 'sidekiq', '< 3'
 gem 'unicorn', '~> 4.5.0'
 
-group :assets do
-  gem 'sass-rails',   '~> 4.0.0'
-  gem 'coffee-rails', '~> 4.0.0'
-  gem 'uglifier',     '>= 1.0.3'
-end
+# assets
+gem 'sass-rails',   '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier',     '>= 1.0.3'
 
 gem 'ace-rails-ap',    '~> 2.0.0'
 gem 'bugsnag',         '~> 5.1.0'
