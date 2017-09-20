@@ -9,15 +9,15 @@ describe Gyoza::Change do
   let(:file)   { double print: true }
 
   before :each do
-    GH.stub tap: gh
-    Gyoza::Shell.stub new: shell
-    Dir.stub mktmpdir: '/tmp/path', chdir: true
-    FileUtils.stub remove_entry: true
-    Time.stub_chain(:zone, :now, :to_i).and_return 456123
+    allow(GH).to receive_messages tap: gh
+    allow(Gyoza::Shell).to receive_messages new: shell
+    allow(Dir).to receive_messages mktmpdir: '/tmp/path', chdir: true
+    allow(FileUtils).to receive_messages remove_entry: true
+    allow(Time).to receive_message_chain(:zone, :now, :to_i).and_return 456123
     allow(File).to receive(:open).and_yield file
 
-    change.stub sleep: true
-    gh.stub_chain(:current, :setup).and_return true
+    allow(change).to receive_messages sleep: true
+    allow(gh).to receive_message_chain(:current, :setup).and_return true
   end
 
   describe '#change' do

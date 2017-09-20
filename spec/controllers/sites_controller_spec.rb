@@ -25,7 +25,7 @@ describe SitesController do
     end
 
     before :each do
-      Gyoza::Workers::ChangeWorker.stub :perform_async => true
+      allow(Gyoza::Workers::ChangeWorker).to receive_messages :perform_async => true
 
       session[:omniauth] = {'info' => {
         'nickname' => 'parndt',

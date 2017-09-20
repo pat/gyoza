@@ -2,7 +2,7 @@ require 'gyoza'
 
 describe Gyoza::Shell do
   before :each do
-    subject.stub :system => 'output'
+    allow(subject).to receive_messages :system => 'output'
   end
 
   describe '#run' do
