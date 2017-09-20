@@ -17,6 +17,7 @@ gem 'ace-rails-ap',    '~> 2.0.0'
 gem 'bugsnag',         '~> 5.1.0'
 gem 'decent_exposure'
 gem 'gh',              '~> 0.9.0'
+gem 'hiredis'
 gem 'omniauth-github', '~> 1.1.0'
 
 group :test do
