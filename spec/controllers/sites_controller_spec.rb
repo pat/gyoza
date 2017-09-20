@@ -5,7 +5,7 @@ describe SitesController do
     it "requires OAuth authentication" do
       get :show, user: 'pat', repo: 'riddle', path: 'index.html'
 
-      response.should redirect_to('/auth/github')
+      expect(response).to redirect_to('/auth/github')
     end
 
     it "is successful with an active OAuth session" do
@@ -13,7 +13,7 @@ describe SitesController do
 
       get :show, user: 'pat', repo: 'riddle', path: 'index.html'
 
-      response.should be_success
+      expect(response).to be_success
     end
   end
 
@@ -41,11 +41,11 @@ describe SitesController do
 
       send_update
 
-      response.should redirect_to('/auth/github')
+      expect(response).to redirect_to('/auth/github')
     end
 
     it "queues a change with an active OAuth session" do
-      Gyoza::Workers::ChangeWorker.should_receive(:perform_async).with(
+      expect(Gyoza::Workers::ChangeWorker).to receive(:perform_async).with(
         author:      'Philip Arndt <phil@arn.dt>',
         user:        'pat',
         repo:        'riddle',
@@ -62,7 +62,7 @@ describe SitesController do
     it "uses the nickname if no name is set" do
       session[:omniauth]['info'].delete 'name'
 
-      Gyoza::Workers::ChangeWorker.should_receive(:perform_async).with(
+      expect(Gyoza::Workers::ChangeWorker).to receive(:perform_async).with(
         author:      'parndt <phil@arn.dt>',
         user:        'pat',
         repo:        'riddle',
@@ -79,7 +79,7 @@ describe SitesController do
     it "redirects back to the previous page" do
       send_update
 
-      response.should redirect_to('/original/path')
+      expect(response).to redirect_to('/original/path')
     end
   end
 end

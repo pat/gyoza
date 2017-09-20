@@ -7,7 +7,7 @@ describe Gyoza::Shell do
 
   describe '#run' do
     it "runs each supplied command with the path to ssh configuration" do
-      subject.should_receive(:system).
+      expect(subject).to receive(:system).
         with({'GIT_ASKPASS' => Gyoza::Shell::EXECUTABLE}, 'foo')
 
       subject.run 'foo'

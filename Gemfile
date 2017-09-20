@@ -22,7 +22,7 @@ gem 'sinatra',         '~> 1.3.3', require: false
 gem 'slim',            '~> 1.3.4'
 
 group :test do
-  gem 'rspec-rails', '2.12.2'
+  gem 'rspec-rails', '2.99'
   gem 'test-unit'
 end
 
